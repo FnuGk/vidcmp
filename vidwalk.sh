@@ -68,7 +68,7 @@ MAX_JOBS=$(getconf _NPROCESSORS_ONLN)
 #     white_list="$white_list $fmt"
 # done
 
-IFS=$'\n' files=( $(find . -type f \( -iname "*.mp4" -o -iname "*.m4v" -o -iname "*.wmv" -o -iname "*.mpg" -o -iname "*.mpeg" -o -iname "*.avi" -o -iname "*.flv" -o -iname "*.mov" -o -iname "*.mkv" -o -iname "*.webm" \) -print  2>/dev/null) )
+IFS=$'\n' files=( $(find "$1" -type f \( -iname "*.mp4" -o -iname "*.m4v" -o -iname "*.wmv" -o -iname "*.mpg" -o -iname "*.mpeg" -o -iname "*.avi" -o -iname "*.flv" -o -iname "*.mov" -o -iname "*.mkv" -o -iname "*.webm" \) -print  2>/dev/null) )
 #IFS=$'\n' files=( $(find . -not -name "*.part" -not -iname "*.jpg" -not -iname "*.jpeg" -not -iname "*.nfo" -type f -print 2>/dev/null) )
 
 n=${#files[@]}
