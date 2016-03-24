@@ -21,6 +21,18 @@ for (( i=0; i<$len; i++ )); do
     echo $file2
 
     if [[ "$(echo "$avg_phash < 21" | bc -l)" -eq "1" ]]; then
+        if ! ([[ "$file1" == *wmv ]] && [[ "$file2" == *wmv ]]); then
+            if [[ "$file1" == *wmv ]]; then
+                echo "wmv"
+                rm "$file1"
+                continue
+            elif [[ "$file2" == *wmv ]]; then
+                echo "wmv"
+                rm "$file2"
+                continue
+            fi
+        fi
+
         if [[ "$bit_rate1" -gt "$bit_rate2" ]]; then
             echo "$bit_rate1 > $bit_rate2"
             rm "$file2"
